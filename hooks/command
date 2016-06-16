@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -euo pipefail
+
+echo "--- Output envs"
+
+env | grep CALIBRE
+
+echo "--- :calibre: Creating Calibre snapshot"
+
+echo "TODO"
+
+# curl -X POST "https://calibreapp.com/api/sites/$CALIBRE_SITE_SLUG/snapshots?api_key=$CALIBRE_API_KEY" \
+#      --fail \
+#      --silent \
+#      -d "ref=Deployed ${BUILDKITE_COMMIT:0:7} (Build $BUILDKITE_BUILD_NUMBER)" \
+#      -d "ref_url=$BUILDKITE_BUILD_URL"
