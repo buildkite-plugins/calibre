@@ -11,15 +11,15 @@ API_KEY=$(eval "echo \$$BUILDKITE_PLUGIN_CALIBRE_API_KEY_FROM")
 
 # Run the command
 
-if [[ -z "$BUILDKITE_PLUGIN_CALIBRE_SNAPSHOT" ]]; then
-  echo "--- :calibre: Creating Calibre snapshot"
+if [[ ! -z "$BUILDKITE_PLUGIN_CALIBRE_SNAPSHOT" ]]; then
+  echo "--- :calibre: Creating Calibre snapshot for site $BUILDKITE_PLUGIN_CALIBRE_SNAPSHOT"
 
   curl "https://calibreapp.com/api/sites/$BUILDKITE_PLUGIN_CALIBRE_SNAPSHOT/snapshots?api_key=$API_KEY" \
     -X POST \
     --fail \
-    --silent \
     -d "ref=Deployed ${BUILDKITE_COMMIT:0:7} (Build $BUILDKITE_BUILD_NUMBER)" \
     -d "ref_url=$BUILDKITE_BUILD_URL"
 else
   echo "+++ :calibre: :warning: No snapshot config option given"
+  exit 1
 fi
