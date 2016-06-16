@@ -6,6 +6,8 @@ A Buildkite plugin allowing you to create [Calibre](https://calibreapp.com/) sna
 
 ```yml
 steps:
+  - command: deploy.sh
+  - wait
   - name: ":calibre:"
     plugins:
       calibre:
@@ -16,7 +18,7 @@ steps:
 
 ### `CALIBRE_API_KEY`
 
-Your Calibre API key should be set to this environment variable, either in your pipeline’s environment variable settings or exposed in an environment hook.
+Your Calibre API key should be set to this environment variable, either in your pipeline’s environment variable settings or exposed in an environment hook. If you need different keys for different parts of your pipeline use `api-key-from` instead.
 
 ## Options
 
