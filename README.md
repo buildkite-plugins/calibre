@@ -1,6 +1,6 @@
 # Calibre Buildkite Plugin
 
-A [Buildkite](https://buildkite.com/) plugin allowing you to create [Calibre](https://calibreapp.com/) snapshots.
+A [Buildkite](https://buildkite.com/) plugin to easily create create [Calibre](https://calibreapp.com/) snapshots from deloy pipelines.
 
 ## Example
 
