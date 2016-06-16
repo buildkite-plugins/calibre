@@ -18,7 +18,8 @@ if [[ ! -z "$BUILDKITE_PLUGIN_CALIBRE_SNAPSHOT" ]]; then
     -X POST \
     --fail \
     -d "ref=Deployed ${BUILDKITE_COMMIT:0:7} (Build $BUILDKITE_BUILD_NUMBER)" \
-    -d "ref_url=$BUILDKITE_BUILD_URL"
+    -d "ref_url=$BUILDKITE_BUILD_URL" \
+    --max-time 30
 else
   echo "+++ :calibre: :warning: No snapshot config option given"
   exit 1
