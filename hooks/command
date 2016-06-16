@@ -12,7 +12,7 @@ API_KEY=$(eval "echo \$$BUILDKITE_PLUGIN_CALIBRE_API_KEY_FROM")
 # Run the command
 
 if [[ ! -z "$BUILDKITE_PLUGIN_CALIBRE_SNAPSHOT" ]]; then
-  echo "--- :calibre: Creating Calibre snapshot for site $BUILDKITE_PLUGIN_CALIBRE_SNAPSHOT"
+  echo "--- :calibre: Creating Calibre snapshot for $BUILDKITE_PLUGIN_CALIBRE_SNAPSHOT"
 
   curl "https://calibreapp.com/api/sites/$BUILDKITE_PLUGIN_CALIBRE_SNAPSHOT/snapshots?api_key=$API_KEY" \
     -X POST \
