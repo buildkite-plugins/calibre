@@ -6,7 +6,7 @@ A Buildkite plugin allowing you to create [Calibre](https://calibreapp.com/) sna
 
 ```yml
 steps:
-  - command: test.sh
+  - name: ":calibre:"
     plugins:
       calibre:
         snapshot: my-site
@@ -20,18 +20,20 @@ Your Calibre API key should be set to this environment variable, either in your 
 
 ## Options
 
-### `api-key`
+### `api-key-from`
 
-You can use this to specify a different API key from the standard `CALIBRE_API_KEY`, useful if you want to create snapshots for different Calibre sites (with different API keys) from the same pipeline. For example:
+Specifies the environment variable containing the calibre API key, useful if you need to create snapshots for different Calibre sites (with different API keys) from within the same pipeline. For example:
 
 ```yml
 steps:
-  - command: test.sh
+  - name: ":calibre: Other Site"
     plugins:
       calibre:
-        snapshot: my-site
-        api-key: $$SOME_ENV_VAR
+        snapshot: other-site
+        api-key-from: CALIBRE_OTHER_SITE_API_KEY
 ```
+
+Default: `CALIBRE_API_KEY`
 
 ## License
 

@@ -2,16 +2,24 @@
 
 set -euo pipefail
 
-echo "--- Output envs"
+BUILDKITE_PLUGIN_CALIBRE_API_KEY_FROM=${BUILDKITE_PLUGIN_CALIBRE_API_KEY_FROM:-CALIBRE_API_KEY}
+BUILDKITE_PLUGIN_CALIBRE_SNAPSHOT=${BUILDKITE_PLUGIN_CALIBRE_SNAPSHOT:-}
 
-env | grep CALIBRE
+# Figure out the API key based on the api-key-from option
 
-echo "--- :calibre: Creating Calibre snapshot"
+API_KEY=$(eval "echo \$$BUILDKITE_PLUGIN_CALIBRE_API_KEY_FROM")
 
-echo "TODO"
+# Run the command
 
-# curl -X POST "https://calibreapp.com/api/sites/$CALIBRE_SITE_SLUG/snapshots?api_key=$CALIBRE_API_KEY" \
-#      --fail \
-#      --silent \
-#      -d "ref=Deployed ${BUILDKITE_COMMIT:0:7} (Build $BUILDKITE_BUILD_NUMBER)" \
-#      -d "ref_url=$BUILDKITE_BUILD_URL"
+if [[ -z "$BUILDKITE_PLUGIN_CALIBRE_SNAPSHOT" ]]; then
+  echo "--- :calibre: Creating Calibre snapshot"
+
+  curl "https://calibreapp.com/api/sites/$BUILDKITE_PLUGIN_CALIBRE_SNAPSHOT/snapshots?api_key=$API_KEY" \
+    -X POST \
+    --fail \
+    --silent \
+    -d "ref=Deployed ${BUILDKITE_COMMIT:0:7} (Build $BUILDKITE_BUILD_NUMBER)" \
+    -d "ref_url=$BUILDKITE_BUILD_URL"
+else
+  echo "+++ :calibre: :warning: No snapshot config option given"
+fi
