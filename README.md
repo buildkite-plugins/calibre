@@ -28,11 +28,16 @@ Specifies the environment variable containing the calibre API key, useful if you
 
 ```yml
 steps:
-  - name: ":calibre: Other Site"
+  - name: ":calibre: Site 1"
     plugins:
       calibre:
-        snapshot: other-site
-        api-key-from: CALIBRE_OTHER_SITE_API_KEY
+        snapshot: site-1
+        api-key-from: CALIBRE_SITE_1_API_KEY
+  - name: ":calibre: Site 2"
+    plugins:
+      calibre:
+        snapshot: site-2
+        api-key-from: CALIBRE_SITE_2_API_KEY
 ```
 
 Default: `CALIBRE_API_KEY`
