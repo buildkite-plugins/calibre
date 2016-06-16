@@ -1,6 +1,6 @@
 # Calibre Buildkite Plugin
 
-A Buildkite plugin allowing you to create [Calibre](https://calibreapp.com/) snapshots.
+A [Buildkite](https://buildkite.com/) plugin allowing you to create [Calibre](https://calibreapp.com/) snapshots.
 
 ## Example
 
