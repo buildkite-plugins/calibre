@@ -1,7 +1,0 @@
-{
-	"name": "Calibre",
-	"description": "Easily create Calibre site snapshots from deploy pipelines",
-	"author": "@buildkite",
-	"public": true,
-	"requirements": ["curl"]
-}
