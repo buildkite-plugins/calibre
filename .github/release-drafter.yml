@@ -10,7 +10,7 @@ template: |
 
   ```diff
   steps:
-    - command: test.sh
+    - name: ':calibre:'
       plugins:
   -     calibre#$PREVIOUS_TAG:
   +     calibre#TODO:
