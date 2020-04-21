@@ -2,12 +2,12 @@ name: Calibre
 description: Easily create Calibre site snapshots from deploy pipelines
 author: https://github.com/buildkite
 requirements:
-	- curl
+  - curl
 configuration:
-	properties:
-		snapshot:
-			type: string
-		api-key-from:
-			type: string
-	required:
-		- snapshot
+  properties:
+    snapshot:
+      type: string
+    api-key-from:
+      type: string
+    required:
+      - snapshot
