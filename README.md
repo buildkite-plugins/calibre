@@ -1,4 +1,4 @@
-# Calibre Buildkite Plugin
+# Calibre Buildkite Plugin [![Build status](https://badge.buildkite.com/c0a520396358b4f513b3a88e01cddd5954b3a1f0151c31646e.svg?branch=master)](https://buildkite.com/buildkite/plugins-calibre)
 
 A [Buildkite](https://buildkite.com/) plugin to easily create create [Calibre](https://calibreapp.com/) snapshots from deploy pipelines.
 
